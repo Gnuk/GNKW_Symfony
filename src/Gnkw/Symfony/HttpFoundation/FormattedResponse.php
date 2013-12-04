@@ -27,7 +27,7 @@ use Symfony\Component\HttpFoundation\Response;
 * @author Anthony Rey
 * @since 04/12/2013
 */
-class FormatedResponse extends Response
+class FormattedResponse extends Response
 {
 	/**
 	* Custom data used if there is a specific case
