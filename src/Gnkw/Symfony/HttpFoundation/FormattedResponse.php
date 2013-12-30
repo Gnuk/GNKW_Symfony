@@ -114,10 +114,12 @@ class FormattedResponse extends Response
 			if($format === 'jsonp')
 			{
 				$customData = ('string' === gettype($this->customData)) ? $this->customData : 'data';
-				if(!empty($_GET))
-				{
-					$getKeys = array_keys($_GET);
-					$customData = $getKeys[0];
+				if(!empty($_SERVER['QUERY_STRING'])) {
+				
+					$querystring = $_SERVER['QUERY_STRING'];
+					$querystring = explode("&" , $querystring);
+					$querystring = explode("=" , $querystring[0]);
+					$customData = $querystring[0];
 				}
 				$customData = trim($customData);
 				$content = $customData . '(' . $content . ');';
